@@ -1,11 +1,10 @@
 #include <iostream>
 #include "PolynomialInterpolation.hpp"
-#include "exprtk.hpp"
 using namespace std;
 
 
 
-void fillRow(int x, int y, vector<double>& M) {
+void fillRow(long x, long y, vector<double>& M) {
     M[0] = 1;
     M[1] = x;
     M[2] = y;
@@ -18,7 +17,8 @@ void fillRow(int x, int y, vector<double>& M) {
 }
 
 int main() {
-  int N, xi, yi, zi;
+  int N;
+  long xi, yi, zi;
 
   // F(x,y) = a0 + a1x + a2y + a3xy + a4x² + a5y² + a6xy² + a7x²y + a8x²y²
   vector<vector<double>> matrix(9, vector<double>(9));
@@ -38,8 +38,9 @@ int main() {
   (x, y) = pairs to interpolate
   z = F(x,y)
   */
-  int M, x, y, z;
-  int xaux, yaux;
+  int M;
+  long x, y, z;
+  long xaux, yaux;
   double detj;
 
   cin >> M;
