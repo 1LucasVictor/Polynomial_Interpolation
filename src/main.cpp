@@ -3,32 +3,18 @@
 using namespace std;
 
 
+
 int main() {
-  int N;
-  cin >> N;
-
-
-  double* X = new double[N];
-  double* Y = new double[N];
-  double** table;
-  table = new double *[N];
-  for (int i = 0; i < N; i++) {
-    table[i] = new double[N];
-  }
-
-  for(int i = 0; i < N; i++) {
-    cin >> X[i];
-    cin >> Y[i];
-    cin >> table[i][0];
-  }
+  int N, xi, yi, zi;
+  vector<vector<double>> matrix(N, vector<double>(N));
+  vector<double> fi;
   
-  bilinearInterpolation(X, Y, table);
-
-
-  delete [] X;
-  for (int i = 0; i < N; i++) {
-    delete[] table[i];
+  cin >> N; 
+  for(int i = 0; i< N; i++) {
+    cin >> xi, yi, zi;
+    
   }
-  delete[] table;
+
+   cout << "Determinant: " << calculateDeterminant(matrix) << endl;
   return 0;
 }

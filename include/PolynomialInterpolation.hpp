@@ -1,5 +1,5 @@
-#include<string>
-
+#include <string>
+#include <vector>
 
 
 //Calculates an interpolation for single-variable functions.
@@ -17,3 +17,8 @@ X2    Y1        Z3
 X2    Y2        Z4
 */
 std::string bilinearInterpolation(double* x, double* y, double** table);
+
+
+
+
+double calculateDeterminant(const std::vector<std::vector<double>>& matrix);

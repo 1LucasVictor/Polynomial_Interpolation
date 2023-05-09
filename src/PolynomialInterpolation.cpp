@@ -76,3 +76,28 @@ string bilinearInterpolation(double* x, double* y, double** table) {
     delete [] xAux;
     return "Oi\n";
 }
+
+
+double calculateDeterminant(const std::vector<std::vector<double>>& matrix) {
+    int size = matrix.size();
+    if (size == 1) {
+        return matrix[0][0];
+    } else if (size == 2) {
+        return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+    } else {
+        double determinant = 0.0;
+        for (int col = 0; col < size; col++) {
+            std::vector<std::vector<double>> subMatrix(size - 1, std::vector<double>(size - 1));
+            for (int i = 1; i < size; i++) {
+                int subCol = 0;
+                for (int j = 0; j < size; j++) {
+                    if (j != col) {
+                        subMatrix[i - 1][subCol++] = matrix[i][j];
+                    }
+                }
+            }
+            determinant += (col % 2 == 0 ? 1 : -1) * matrix[0][col] * calculateDeterminant(subMatrix);
+        }
+        return determinant;
+    }
+}
