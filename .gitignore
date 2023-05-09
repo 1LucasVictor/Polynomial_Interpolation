@@ -1,0 +1,5 @@
+*.o
+*.dot
+*.txt
+exprtk/
+obj/

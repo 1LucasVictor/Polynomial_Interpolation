@@ -21,4 +21,4 @@ std::string bilinearInterpolation(double* x, double* y, double** table);
 
 
 
-double calculateDeterminant(const std::vector<std::vector<double>>& matrix);
+double calculateDeterminant(const std::vector<std::vector<double>>& matrix, int);

@@ -78,8 +78,7 @@ string bilinearInterpolation(double* x, double* y, double** table) {
 }
 
 
-double calculateDeterminant(const std::vector<std::vector<double>>& matrix) {
-    int size = matrix.size();
+double calculateDeterminant(const std::vector<std::vector<double>>& matrix, int size) {
     if (size == 1) {
         return matrix[0][0];
     } else if (size == 2) {
@@ -96,7 +95,7 @@ double calculateDeterminant(const std::vector<std::vector<double>>& matrix) {
                     }
                 }
             }
-            determinant += (col % 2 == 0 ? 1 : -1) * matrix[0][col] * calculateDeterminant(subMatrix);
+            determinant += (col % 2 == 0 ? 1 : -1) * matrix[0][col] * calculateDeterminant(subMatrix, size-1);
         }
         return determinant;
     }
